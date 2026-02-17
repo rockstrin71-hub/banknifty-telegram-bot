@@ -1,3 +1,11 @@
+from flask import Flask
+import threading
+
+app = Flask(_name_)
+
+@app.route('/')
+def home():
+    return "Bot is running"
 import requests
 import time
 
@@ -20,8 +28,11 @@ def get_banknifty_price():
     return price
 
 send_telegram_message("Bot started and tracking BankNifty 📈")
+send_telegram_message("Bot started and tracking BankNifty 🚀")
 
-while True:
+@app.route("/")
+def home():
     price = get_banknifty_price()
     send_telegram_message(f"BankNifty Live Price: {price}")
-    time.sleep(600)
+    return "Bot is running!"
+
