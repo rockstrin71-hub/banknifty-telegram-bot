@@ -1,0 +1,6 @@
+services:
+  - type: worker
+    name: banknifty-bot
+    runtime: python
+    buildCommand: "pip install python-telegram-bot requests pandas"
+    startCommand: "python bot.py"
